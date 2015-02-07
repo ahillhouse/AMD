@@ -40,13 +40,12 @@ bool Tree::equal (const boost::shared_ptr<Tree>& t1,
     if (!t1 || !t2) return false;
 
     return (t1->d_info == t2->d_info) &&
-           (t1->d_left == t1->d_left) &&
-           (t1->d_right == t1->d_right);
+           equal(t1->d_left,t1->d_left) &&
+           equal(t1->d_right,t1->d_right);
 }
 
 bool Tree::operator==(const Tree& other) const
 {
-
     return (other.d_info == this->d_info) &&
            (equal(other.d_left,this->d_left)) &&
            (equal(other.d_right,this->d_right));

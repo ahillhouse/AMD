@@ -12,7 +12,7 @@ BOOST_AUTO_TEST_CASE ( Equal )
     Tree testTree2("M",boost::shared_ptr<Tree>(),boost::shared_ptr<Tree>());
     Tree testTree3("M",boost::shared_ptr<Tree>(boost::make_shared<Tree>(testTree2)),
     	           boost::shared_ptr<Tree>());
-    Tree testTree4("M",boost::shared_ptr<Tree>(boost::make_shared<Tree>(testTree2)),
+    Tree testTree4("M",boost::shared_ptr<Tree>(boost::make_shared<Tree>(testTree)),
     	           boost::shared_ptr<Tree>());
     Tree testTree5("N",boost::shared_ptr<Tree>(boost::make_shared<Tree>(testTree2)),
     	           boost::shared_ptr<Tree>());
@@ -32,7 +32,7 @@ BOOST_AUTO_TEST_CASE ( NotEqual )
     Tree testTree2("M",boost::shared_ptr<Tree>(),boost::shared_ptr<Tree>());
     Tree testTree3("M",boost::shared_ptr<Tree>(boost::make_shared<Tree>(testTree2)),
     	           boost::shared_ptr<Tree>());
-    Tree testTree4("M",boost::shared_ptr<Tree>(boost::make_shared<Tree>(testTree2)),
+    Tree testTree4("M",boost::shared_ptr<Tree>(boost::make_shared<Tree>(testTree)),
     	           boost::shared_ptr<Tree>());
     Tree testTree5("N",boost::shared_ptr<Tree>(boost::make_shared<Tree>(testTree2)),
     	           boost::shared_ptr<Tree>());
