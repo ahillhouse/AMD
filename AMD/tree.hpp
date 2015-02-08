@@ -54,12 +54,6 @@ class Tree {
     ///< Swap the entire structure of this tree with that of the other tree. 
     ///  @param[inout] other The tree that we want to swap with
 
-    bool equal(const boost::shared_ptr<Tree>& t1, 
-               const boost::shared_ptr<Tree>& t2) const;
-    ///< Checks if two trees are equal. For two trees
-    ///  to be equal, they should have the exact same structure and the same
-    ///  information at each of the nodes.
-
     bool operator==(const Tree& other) const;
     ///< Check if the current tree is equal to the other tree. For two trees
     ///  to be equal, they should have the exact same structure and the same

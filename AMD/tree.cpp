@@ -1,5 +1,5 @@
 #include <AMD/tree.hpp>
-#include <iostream>
+#include <stdio.h>
 
 namespace AMD { namespace detail {
 
@@ -32,23 +32,27 @@ void Tree::setInfo(const std::string& info)
     this->d_info = info;
 }
 
-bool Tree::equal (const boost::shared_ptr<Tree>& t1,
-                 const boost::shared_ptr<Tree>& t2) const
-{
-    if (t1 == t2) return true;
-
-    if (!t1 || !t2) return false;
-
-    return (t1->d_info == t2->d_info) &&
-           equal(t1->d_left,t1->d_left) &&
-           equal(t1->d_right,t1->d_right);
-}
-
 bool Tree::operator==(const Tree& other) const
 {
-    return (other.d_info == this->d_info) &&
-           (equal(other.d_left,this->d_left)) &&
-           (equal(other.d_right,this->d_right));
+    if (other.d_info != this->d_info) return false;
+
+    if ((other.d_right == this->d_right) && (other.d_left == this->d_left))
+        return true;
+
+    if ((!(other.d_right) && this->d_right) 
+         || (other.d_right && !(this->d_right))
+         || (!(other.d_left) && this->d_left)
+         || (other.d_left && !(this->d_left))) return false;
+
+    if (!other.d_right && !other.d_right) 
+        return *(other.d_left) == *(this->d_left);
+    else if (!other.d_left && !this->d_left) 
+        return *(other.d_right) == *(this->d_right);
+    else
+    {
+        return (*(other.d_right) == *(this->d_right))
+           && (*(other.d_left) == *(this->d_left));
+    }
 }
 
 bool Tree::operator!=(const Tree& other) const
